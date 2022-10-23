@@ -14,16 +14,23 @@ public class Main {
 
         for (int i = 0; i < initialWords.length; i++) {
 
-            // if initialWords[i] is already found
+            // if initialWords[i] has been already encountered before
             //   - then I need to know the index of the
             //     location where the previous word is located
+            //     in the uniqueWords array
+            //   - and increment the counter in the counters array
+            //     with the same index
             // else
             //   - use currentIndex to uniqueWords[currentIndex] = initialWords[i]
-            //   - numberOfTimes[currentIndex] = 1
+            //   - counters[currentIndex] = 1
+            //   - increment the currentIndex by 1
             String initialWord = initialWords[i];
-            int foundIndex
-                    = isThisWordAlreadyFound(uniqueWords, initialWord, currentIndex);
-            // if the word is already encountered
+            int foundIndex = isThisWordAlreadyFound(
+                    uniqueWords,
+                    initialWord,
+                    currentIndex);
+
+            // if the word has been already encountered
             if (foundIndex >= 0) {
                 counters[foundIndex]++;
             }
