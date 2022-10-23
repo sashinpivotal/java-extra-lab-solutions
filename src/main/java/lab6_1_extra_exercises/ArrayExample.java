@@ -53,5 +53,13 @@ public class ArrayExample {
         return largestNumber;
     }
 
+    // exercise #4
+    public static void convertAndDisplayNamesOfMyFriendsToUpperCaseUsingVarargs(String... myFriends) {
+        String[] friends = myFriends;
+        for (String friend : friends) {
+            System.out.print(friend.toUpperCase() + " ");
+        }
+    }
+
 }
 
