@@ -10,12 +10,11 @@ package music_album;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class InMemoryCatalog implements ICatalog {
 
-    private List<MusicItem> catalogData = new ArrayList<>(List.of(
+    private List<MusicItem> catalogOfMusicItems = new ArrayList<>(List.of(
                    /* id    title                        artist                       releaseDate  price  musicCategory */
         new MusicItem(1L,  "Diva",                      "Annie Lennox",              "1992-01-04", 13.99, MusicCategory.POP),
         new MusicItem(2L,  "Dream of the Blue Turtles", "Sting",                     "1985-02-05", 14.99, MusicCategory.POP),
@@ -41,7 +40,7 @@ public class InMemoryCatalog implements ICatalog {
     @Override
     public MusicItem findById(Long id) {
         MusicItem resultMusicItem = null;
-        for (MusicItem musicItem : catalogData) {
+        for (MusicItem musicItem : catalogOfMusicItems) {
             if (musicItem.getId().equals(id)) {
                 resultMusicItem = musicItem;
             }
@@ -53,7 +52,7 @@ public class InMemoryCatalog implements ICatalog {
     @Override
     public Collection<MusicItem> findByKeyword(String keyword) {
         ArrayList<MusicItem> musicItems = new ArrayList<>();
-        for (MusicItem musicItem : catalogData) {
+        for (MusicItem musicItem : catalogOfMusicItems) {
             String toString = musicItem.toString();
             if (toString.contains(keyword)) {
                 musicItems.add(musicItem);
@@ -66,7 +65,7 @@ public class InMemoryCatalog implements ICatalog {
     @Override
     public Collection<MusicItem> findByCategory(MusicCategory category) {
         ArrayList<MusicItem> musicItems = new ArrayList<>();
-        for (MusicItem musicItem : catalogData) {
+        for (MusicItem musicItem : catalogOfMusicItems) {
             if (musicItem.getMusicCategory().equals(category)) {
                 musicItems.add(musicItem);
             }
@@ -76,13 +75,13 @@ public class InMemoryCatalog implements ICatalog {
 
     // TODO-04a - Write code below
     public int totalNumberOfMusicItems() {
-        return catalogData.size();
+        return catalogOfMusicItems.size();
     }
 
     // TODO-05a - Write code below
     @Override
     public Collection<MusicItem> getAll() {
-        return catalogData;
+        return catalogOfMusicItems;
     }
 
     /**
@@ -118,82 +117,114 @@ public class InMemoryCatalog implements ICatalog {
      */
 
     /**
-     * TODO-06: find all MusicItems where title is same as artist.
-     * For example, Madonna's first album is simply titled, "Madonna."
+     * TODO-06:
+     * - Find all MusicItems where title is same as artist.
+     *   For example, Madonna's first album is simply
+     *   titled, "Madonna."
+     * - Write client code in the "InMemoryCatalogClient"
+     */
+    public List<MusicItem> findAllMusicItemsWhereTitleIsSameAsArtist() {
+        ArrayList<MusicItem> musicItems = new ArrayList<>();
+        for (MusicItem musicItem : catalogOfMusicItems) {
+            if (musicItem.getTitle().equals(musicItem.getArtist())) {
+                musicItems.add(musicItem);
+            }
+        }
+        return musicItems;
+    }
+
+    /**
+     * TODO-07:
+     * - Find all "rock" items whose price is less
+     *   than or equal to the specified price.
+     * - Write client code in the "InMemoryCatalogClient"
      */
 
 
     /**
-     * TODO-07: find all "rock" items whose price is less
-     * than or equal to the specified price.
+     * TODO-08:
+     * - Write code to find out how many items of the specified genre
+     *   (MusicCategory) do we sell?
+     * - Write client code in the "InMemoryCatalogClient"
      */
 
 
     /**
-     * TODO-08: how many items of the specified genre
-     * (MusicCategory) do we sell?
+     * TODO-09:
+     * - Compute average price of our low-cost,
+     *   extensive catalog of music.
+     * - Write client code in the "InMemoryCatalogClient"
      */
 
 
     /**
-     * TODO-09: determine average price of our low-cost,
-     * extensive catalog of music.
+     * TODO-10:
+     * - Find the cheapest item with the
+     *   specified genre (MusicCategory)
+     * - Write client code in the "InMemoryCatalogClient".
      */
 
 
     /**
-     * TODO-10: find the cheapest item with the
-     * specified genre (MusicCategory).
+     * TODO-11:
+     * - Find the average price of items in
+     *   the specified genre (MusicCategory).
+     * - Write client code in the "InMemoryCatalogClient".
      */
 
 
     /**
-     * TODO-11: find the average price of items in
-     * the specified genre (MusicCategory).
+     * TODO-12:
+     * - Find out if all items priced at least $10?
+     *   This is a yes/no answer.
+     * - Write client code in the "InMemoryCatalogClient".
      */
 
 
     /**
-     * TODO-12: are all items priced at least $10?
-     * This is a yes/no answer.
+     * TODO-13:
+     * - Find out if we sell any items with the
+     *   specified genre (MusicCategory)?
+     *   Another yes/no answer.
+     * - Write client code in the "InMemoryCatalogClient".
      */
 
 
     /**
-     * TODO-13: do we sell any items with the
-     * specified genre (MusicCategory)?
-     * Another yes/no answer.
+     * TODO-14:
+     * - Find the titles of all "pop" items,
+     *   sorted by natural order.
+     *   Just the titles!
+     * - Write client code in the "InMemoryCatalogClient".
      */
 
 
     /**
-     * TODO-14: find the titles of all "pop" items,
-     * sorted by natural order.
-     * Just the titles!
+     * TODO-15:
+     * - Find all items released in the 80s whose
+     *   price is less than or equal to the specified price.
+     * - Write client code in the "InMemoryCatalogClient".
      */
 
 
     /**
-     * TODO-15: find all items released in the 80s whose
-     * price is less than or equal to the specified price.
-     */
-
-
-    /**
-     * TODO-16: return a map whose keys are all the
-     * genres (categories), and each key's associated value
-     * is a collection of items in that genre.
-     * If there is a genre that we don't currently
-     * sell, that key's associated value should
-     * be an empty collection, not null.
+     * TODO-16: (Do this task after you learn Map and HashMap)
+     * - Return a Map object whose keys are all the
+     *   genres (categories), and each key's associated value
+     *   is a collection of items in that genre.
+     *   If there is a genre that we don't currently
+     *   sell, that key's associated value should
+     *   be an empty collection, not null.
+     * - Write client code in the "InMemoryCatalogClient".
      */
 
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder(getClass().getSimpleName() + ": \n");
-        for (MusicItem item: catalogData) {
+        for (MusicItem item: catalogOfMusicItems) {
             builder.append(item).append("\n");
         }
         return builder.toString();
     }
+
 }
