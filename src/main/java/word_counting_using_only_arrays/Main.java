@@ -1,5 +1,7 @@
 package word_counting_using_only_arrays;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {

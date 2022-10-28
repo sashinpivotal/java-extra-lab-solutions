@@ -35,6 +35,8 @@ public class ArrayExample {
             }
         }
 
+        // then create a new array with the required size
+        // and copy over the odd numbers to the new array
         int[] oddNumbers = new int[lengthOfValidOddNumbers];
         for (int i = 0; i < lengthOfValidOddNumbers; i++) {
             oddNumbers[i] = oddNumbersTemp[i];
