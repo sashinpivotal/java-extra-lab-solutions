@@ -36,7 +36,7 @@ public class Main {
             if (foundIndex >= 0) {
                 counters[foundIndex]++;
             }
-            // else - this is the first the word is encountered
+            // else - this is the first time the word is encountered
             else {
                 uniqueWords[currentIndex] = initialWord;
                 counters[currentIndex] = 1;

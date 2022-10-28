@@ -28,7 +28,7 @@ public class Main {
             if (foundIndex >= 0) {
                 counters.set(foundIndex, counters.get(foundIndex)+1);
             }
-            // else - this is the first the word is encountered
+            // else - this is the first time the word is encountered
             else {
                 int index = uniqueWords.size();
                 uniqueWords.add(index,  word);

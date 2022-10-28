@@ -26,7 +26,7 @@ public class Main {
                 uniqueWordsMap.replace(lowerCasedWord,
                         uniqueWordsMap.get(lowerCasedWord) + 1);
             }
-            // else - this is the first the word is encountered
+            // else - this is the first time the word is encountered
             else {
                 uniqueWordsMap.put(lowerCasedWord, 1);
             }
