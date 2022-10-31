@@ -14,17 +14,19 @@ import music_album.MusicCategory;
 import music_album.MusicItem;
 
 import java.util.Collection;
+import java.util.Map;
 
 class InMemoryCatalogClient {
 
     private static ICatalog catalog = new InMemoryCatalog();
 
     public static void main(String[] args) {
-         testFindById();
-         testFindByKeyword();
-         testFindByCategory();
-         testTotalNumberOfMusicItems();
-         testGetAll();
+        testFindById();
+        testFindByKeyword();
+        testFindByCategory();
+        testTotalNumberOfMusicItems();
+        testGetAll();
+        testFindMusicCategoryWithMusicItems();
     }
 
     // TODO-01b - write code to test FindById(..) method
@@ -58,5 +60,17 @@ class InMemoryCatalogClient {
     private static void testGetAll() {
         Collection<MusicItem> musicItems = catalog.getAll();
         System.out.println(musicItems.size());
+    }
+
+    // TODO-16b
+    private static void testFindMusicCategoryWithMusicItems() {
+        Map<MusicCategory, Collection<MusicItem>> musicCategoryWithMusicItems
+                = catalog.findMusicCategoryWithMusicItems();
+
+        for (var item : musicCategoryWithMusicItems.entrySet()) {
+            MusicCategory key = item.getKey();
+            System.out.println("-------------" + key);
+            System.out.println(item.getValue());
+        }
     }
 }

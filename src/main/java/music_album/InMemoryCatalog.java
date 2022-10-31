@@ -8,9 +8,7 @@
 
 package music_album;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 public class InMemoryCatalog implements ICatalog {
 
@@ -217,6 +215,24 @@ public class InMemoryCatalog implements ICatalog {
      *   be an empty collection, not null.
      * - Write client code in the "InMemoryCatalogClient".
      */
+
+    public Map<MusicCategory, Collection<MusicItem>> findMusicCategoryWithMusicItems() {
+        HashMap<MusicCategory, Collection<MusicItem>> musicCategoryWithMusicItems
+                = new HashMap<>();
+
+        for (MusicItem musicItem : catalogOfMusicItems) {
+            MusicCategory musicCategory = musicItem.getMusicCategory();
+            if (musicCategoryWithMusicItems.containsKey(musicCategory)) {
+                Collection<MusicItem> musicItems = musicCategoryWithMusicItems.get(musicCategory);
+                musicItems.add(musicItem);
+            } else {
+                ArrayList<MusicItem> musicItems = new ArrayList<>();
+                musicItems.add(musicItem);
+                musicCategoryWithMusicItems.put(musicCategory, musicItems);
+            }
+        }
+        return musicCategoryWithMusicItems;
+    }
 
     @Override
     public String toString() {

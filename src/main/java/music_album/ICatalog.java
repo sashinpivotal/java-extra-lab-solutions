@@ -9,6 +9,7 @@
 package music_album;
 
 import java.util.Collection;
+import java.util.Map;
 
 public interface ICatalog {
 
@@ -49,4 +50,7 @@ public interface ICatalog {
      * (an all-static utility class) for help here.
      */
     public Collection<MusicItem> getAll();
+
+    // TODO-16
+    public Map<MusicCategory, Collection<MusicItem>> findMusicCategoryWithMusicItems();
 }
