@@ -9,8 +9,7 @@ public class Main {
         String initialSentence
                 = "Hello I love Boston. Yes, you do Love Boston.";
         String[] initialWordsInArray = initialSentence.split("[, ?.@]+");
-        List<String> initialWords =
-                new ArrayList<String>(Arrays.asList(initialWordsInArray));
+        List<String> initialWords = Arrays.asList(initialWordsInArray);
 
         HashMap<String, Integer> uniqueWordsMap = new HashMap<>();
 
