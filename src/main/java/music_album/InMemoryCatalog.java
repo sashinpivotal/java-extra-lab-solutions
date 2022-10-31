@@ -196,6 +196,17 @@ public class InMemoryCatalog implements ICatalog {
      * - Write client code in the "InMemoryCatalogClient".
      */
 
+    public ArrayList<String> sortTitlesOfAllPOPMusicItems() {
+        ArrayList<String> titlesOfPOPMusicItems = new ArrayList<>();
+
+        for (MusicItem musicItem : catalogOfMusicItems) {
+            if (musicItem.getMusicCategory().equals(MusicCategory.POP)) {
+                titlesOfPOPMusicItems.add(musicItem.getTitle());
+            }
+        }
+        Collections.sort(titlesOfPOPMusicItems);
+        return titlesOfPOPMusicItems;
+    }
 
     /**
      * TODO-15:

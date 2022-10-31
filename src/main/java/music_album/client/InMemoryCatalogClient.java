@@ -13,6 +13,7 @@ import music_album.InMemoryCatalog;
 import music_album.MusicCategory;
 import music_album.MusicItem;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
@@ -26,7 +27,8 @@ class InMemoryCatalogClient {
         testFindByCategory();
         testTotalNumberOfMusicItems();
         testGetAll();
-        testFindMusicCategoryWithMusicItems();
+        sortTitlesOfAllPOPMusicItems(); // TODO-14
+        testFindMusicCategoryWithMusicItems();  //TODO-16
     }
 
     // TODO-01b - write code to test FindById(..) method
@@ -60,6 +62,13 @@ class InMemoryCatalogClient {
     private static void testGetAll() {
         Collection<MusicItem> musicItems = catalog.getAll();
         System.out.println(musicItems.size());
+    }
+
+    // TODO-14b
+    private static void sortTitlesOfAllPOPMusicItems() {
+        ArrayList<String> titlesOfAllPOPMusicItems
+                = catalog.sortTitlesOfAllPOPMusicItems();
+        System.out.println(titlesOfAllPOPMusicItems);
     }
 
     // TODO-16b

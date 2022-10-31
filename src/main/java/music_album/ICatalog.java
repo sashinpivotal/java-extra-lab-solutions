@@ -8,6 +8,7 @@
 
 package music_album;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
@@ -50,6 +51,9 @@ public interface ICatalog {
      * (an all-static utility class) for help here.
      */
     public Collection<MusicItem> getAll();
+
+    // TODO-14
+    public ArrayList<String> sortTitlesOfAllPOPMusicItems();
 
     // TODO-16
     public Map<MusicCategory, Collection<MusicItem>> findMusicCategoryWithMusicItems();
