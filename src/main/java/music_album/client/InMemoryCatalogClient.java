@@ -22,13 +22,14 @@ class InMemoryCatalogClient {
     private static ICatalog catalog = new InMemoryCatalog();
 
     public static void main(String[] args) {
-        testFindById();
-        testFindByKeyword();
-        testFindByCategory();
-        testTotalNumberOfMusicItems();
-        testGetAll();
-        sortTitlesOfAllPOPMusicItems(); // TODO-14
-        testFindMusicCategoryWithMusicItems();  //TODO-16
+        testFindById2();
+//        testFindById();
+//        testFindByKeyword();
+//        testFindByCategory();
+//        testTotalNumberOfMusicItems();
+//        testGetAll();
+//        sortTitlesOfAllPOPMusicItems(); // TODO-14
+//        testFindMusicCategoryWithMusicItems();  //TODO-16
     }
 
     // TODO-01b - write code to test FindById(..) method
@@ -36,6 +37,11 @@ class InMemoryCatalogClient {
     private static void testFindById() {
         MusicItem musicItem = catalog.findById(1L);
         System.out.println(musicItem);
+    }
+
+    private static void testFindById2() {
+        Collection<MusicItem> all = catalog.getAll();
+        all.add(new MusicItem(100L, "Diva", "Annie Lennox", "1992-01-04", 13.99, MusicCategory.POP));
     }
 
     // TODO-02b - write code

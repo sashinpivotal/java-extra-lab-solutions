@@ -12,6 +12,7 @@ public class Main {
                 = "Hello I love Boston. Yes, you do Love Boston.";
         String[] initialWordsInArray = initialSentence.split("[, ?.@]+");
         List<String> initialWords = Arrays.asList(initialWordsInArray);
+        List<String> initialWordsMutable = new ArrayList<>(Arrays.asList(initialWordsInArray));
 
         List<String> uniqueWords = new ArrayList<>();
         List<Integer> counters = new ArrayList<>();
