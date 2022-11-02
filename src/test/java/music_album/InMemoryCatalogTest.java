@@ -30,7 +30,7 @@ public class InMemoryCatalogTest {
     }
 
     @Test
-    public void findById() {
+    public void findById_should_return_valid_MusicItem_given_valid_id() {
 
         // act
         // - what is test target method?
@@ -45,11 +45,22 @@ public class InMemoryCatalogTest {
     }
 
     @Test
+    public void _findById_should_return_null_given_invalid_id() {
+
+        // act
+        MusicItem actualMusicItem = inMemoryCatalog.findById(1000L);
+
+        // assert
+        Assert.assertEquals(null, actualMusicItem);
+    }
+
+    @Test
     public void findByKeyword() {
 
         // act
         // - call your test target method with test argument values
-        Collection<MusicItem> actualMusicItems = inMemoryCatalog.findByKeyword("Diva");
+        Collection<MusicItem> actualMusicItems
+                = inMemoryCatalog.findByKeyword("Diva");
 
         // assert
         // - create expected value or object
