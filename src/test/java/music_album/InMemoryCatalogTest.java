@@ -41,7 +41,7 @@ public class InMemoryCatalogTest {
         // assert
         // - create an expected value - expected MusicItem object
         // - compare expected value with the actual
-        Assert.assertEquals(expectedMusicItem, actualMusicItem);
+        assertEquals(expectedMusicItem, actualMusicItem);
     }
 
     @Test
@@ -51,7 +51,7 @@ public class InMemoryCatalogTest {
         MusicItem actualMusicItem = inMemoryCatalog.findById(1000L);
 
         // assert
-        Assert.assertEquals(null, actualMusicItem);
+        assertEquals(null, actualMusicItem);
     }
 
     @Test
@@ -67,6 +67,6 @@ public class InMemoryCatalogTest {
         // - assert to compare actual against expected
         ArrayList<MusicItem> expectedMusicItems = new ArrayList<>();
         expectedMusicItems.add(expectedMusicItem);
-        Assert.assertEquals(expectedMusicItems, actualMusicItems);
+        assertEquals(expectedMusicItems, actualMusicItems);
     }
 }
